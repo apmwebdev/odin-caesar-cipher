@@ -1,24 +1,26 @@
+# frozen_string_literal: true
+
 def caesar_cipher(string, shift)
   string_ascii = string.bytes
   encoded_str = string_ascii.map { |char| encode_char(char, shift) }
-  puts encoded_str.pack('c*')
+  puts encoded_str.pack("c*")
 end
+
 def encode_char(char, shift)
-  case
-  when char.between?(97, 122)
+  if char.between?(97, 122)
     shifted_char = char + shift
     if shifted_char > 122
       shifted_char = 96 + shifted_char - 122
     end
-    return shifted_char
-  when char.between?(65, 90)
+    shifted_char
+  elsif char.between?(65, 90)
     shifted_char = char + shift
     if shifted_char > 90
       shifted_char = 64 + shifted_char - 90
     end
-    return shifted_char
+    shifted_char
   else
-    return char
+    char
   end
 end
 
