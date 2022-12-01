@@ -3,7 +3,7 @@
 def caesar_cipher(string, shift)
   string_ascii = string.bytes
   encoded_str = string_ascii.map { |char| encode_char(char, shift) }
-  puts encoded_str.pack("c*")
+  encoded_str.pack("c*")
 end
 
 def encode_char(char, shift)
@@ -24,9 +24,11 @@ def encode_char(char, shift)
   end
 end
 
-puts "Enter string:"
-input_string = gets.chomp
-puts "Enter shift:"
-input_shift = gets.chomp.to_i
+# puts "Enter string:"
+# input_string = gets.chomp
+# puts "Enter shift:"
+# input_shift = gets.chomp.to_i
 
-caesar_cipher(input_string, input_shift)
+# caesar_cipher(input_string, input_shift)
+p caesar_cipher("test", 2)
+p caesar_cipher("test", 10)
